@@ -18,6 +18,15 @@ public class Main {
             Role.ARTIST, "A short bio", "123 Main St", "/path/to/image.jpg", "dheker@esprit.tn",20454784);
         User testUser2= new User("aya1111", "aya11", "aya11", "password123",
                 Role.CLIENT, "A short bio", "123 Main St", "/path/to/image.jpg", "aya11@esprit.tn",21454874);
+
+
+        User client = new User("client", "client", "client", "password123",
+                Role.CLIENT, "A short bio", "123client", "/path/to/image.jpg", "client@esprit.tn",20457777);
+
+
+
+        User ARTISTE = new User("ARTIST", "ARTIST", "ARTIST", "password123",
+                Role.ARTIST, "A short bio", "123ARTIST", "/path/to/image.jpg", "ARTIST@esprit.tn",20667777);
 ////
 
         User test = new User("test", "test", "test", "password123",
@@ -33,6 +42,8 @@ public class Main {
                 Role.ADMIN, "A short test", "123 test St", "/path/to/image.jpg", "test2test2788@esprit.tn",26465874);
 
 
+        User dheker = new User("dheker1", "dheker1", "dheker1", "password123",
+                Role.ADMIN, "A short test", "123 test St", "/path/to/image.jpg", "dhekerlaadhibii@gmail.com",20159874);
 
 
 
@@ -44,7 +55,7 @@ public class Main {
         userService.ajouter4(testUser2);
 
         userService.ajouter4(test244);
-        userService.ajouter4(test44);
+        userService.ajouter4(dheker);
 
 
          //Affichez la liste des utilisateurs pour vérifier l'ajout

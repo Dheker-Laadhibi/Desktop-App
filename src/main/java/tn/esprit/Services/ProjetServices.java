@@ -325,7 +325,7 @@ public class ProjetServices implements InterfaceCRUD <Projet> {
     }
 
 
-    //Utilisé pour la forme AjouterProjet.fxml
+    //Utilisé pour la forme AjouterReunion.fxml
     /*public String afficherTitreCategorie(int id) {
         String titreCategorie="";
         String req = "SELECT c.titre FROM projet p JOIN categorie c ON p.id_categorie = c.id_categorie WHERE p.id_projet = ?";
