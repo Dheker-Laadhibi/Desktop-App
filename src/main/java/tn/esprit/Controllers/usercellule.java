@@ -98,9 +98,9 @@ public class usercellule {
 
     // Setter method to set user photo based on the role
     public void setUserPhoto(Role userRole) {
-        if (userRole == Role.ARTIST) {
+        if (userRole == Role.FOURNISSEUR) {
             // Set artist photo
-            userPhoto.setImage(new Image(getClass().getResource("/images/Artist1.png").toExternalForm()));
+            userPhoto.setImage(new Image(getClass().getResource("/images/fournisseur.PNG").toExternalForm()));
         } else {
             if (userRole == Role.CLIENT)
             // Set default photo for other roles

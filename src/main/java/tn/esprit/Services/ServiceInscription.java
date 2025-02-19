@@ -61,7 +61,7 @@ public class ServiceInscription {
                 inscrit.setNom(rs.getString("nom"));
                 inscrit.setPrenom(rs.getString("prenom"));
                 inscrit.setEmail(rs.getString("email"));
-                inscrit.setFormation_id(rs.getInt("formation_id"));
+
 
                 inscriptions.add(inscrit);
             }

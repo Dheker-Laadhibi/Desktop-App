@@ -65,8 +65,8 @@
                     case "CLIENT":
                         redirectToCLIENTPage(event);
                         break;
-                    case "ARTIST":
-                        redirectToARTISTPage(event);
+                    case "FOURNISSEUR":
+                        redirectToFournisseurPage(event);
                         break;
                 }
 
@@ -77,10 +77,10 @@
             }
         }
 
-        private void redirectToARTISTPage(ActionEvent event) {
+        private void redirectToFournisseurPage(ActionEvent event) {
             try {
                 // Charger la page de connexion à partir du fichier FXML
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/ProfileArtist.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/sidebarFournisseur.fxml"));
                 Parent root = loader.load();
 
                 // Créer une nouvelle scène

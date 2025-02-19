@@ -110,7 +110,7 @@
                     <center>
                         <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                             <children>
-                                <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="403.0" prefWidth="543.0" style="-fx-background-color: FFFFFF;" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="14.0">
+                                <AnchorPane layoutX="20.0" layoutY="19.0" prefHeight="386.0" prefWidth="542.0" style="-fx-background-color: FFFFFF;" AnchorPane.bottomAnchor="17.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="19.0">
                                 </AnchorPane>
                             </children>
                         </AnchorPane>

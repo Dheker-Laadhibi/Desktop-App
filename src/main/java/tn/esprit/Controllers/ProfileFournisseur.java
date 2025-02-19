@@ -16,7 +16,7 @@ import tn.esprit.Services.UserService;
 
 import java.io.IOException;
 
-public class ProfileArtist implements UpdateListener {
+public class ProfileFournisseur implements UpdateListener {
 
 
     @FXML

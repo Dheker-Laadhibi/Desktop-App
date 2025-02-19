@@ -70,7 +70,7 @@
          <font>
             <Font name="Bold Italic Art" size="18.0" />
          </font></RadioButton>
-            <RadioButton fx:id="artisteRadioButton" layoutX="696.0" layoutY="379.0" mnemonicParsing="false" text="ARTIST">
+            <RadioButton fx:id="FournisseurRadioButton" layoutX="696.0" layoutY="379.0" mnemonicParsing="false" text="FOURNISSEUR">
          <font>
             <Font name="Bold Italic Art" size="17.0" />
          </font></RadioButton>
@@ -90,7 +90,7 @@
       <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fitHeight="30.0" fitWidth="34.0" layoutX="658.0" layoutY="386.0" pickOnBounds="true" preserveRatio="true" rotate="-0.7">
          <image>
-            <Image url="@images/170manartist2_101020.png" />
+            <Image url="@images/fournisseur.PNG" />
          </image>
       </ImageView>
       <ImageView fitHeight="50.0" fitWidth="38.0" layoutX="518.0" layoutY="382.0" pickOnBounds="true" preserveRatio="true">

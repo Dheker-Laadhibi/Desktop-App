@@ -40,7 +40,7 @@ public class inscription {
     private RadioButton clientRadioButton;
 
     @FXML
-    private RadioButton artisteRadioButton;
+    private RadioButton FournisseurRadioButton;
     @FXML
     private PasswordField mdp1;
 
@@ -62,7 +62,7 @@ public class inscription {
         // Vérification de la saisie
         if (nom.getText().isEmpty() || prenom.getText().isEmpty() || mdp.getText().isEmpty() || mdp1.getText().isEmpty()
                 || email.getText().isEmpty() || username.getText().isEmpty() || numtel.getText().isEmpty() ||
-                (!clientRadioButton.isSelected() && !artisteRadioButton.isSelected())) {
+                (!clientRadioButton.isSelected() && !FournisseurRadioButton.isSelected())) {
             showAlert(Alert.AlertType.ERROR, "Erreur de saisie", "Remplissez tous les champs.");
         } else
         if (mdp.getText().length() < 8) {
@@ -90,38 +90,33 @@ public class inscription {
             showAlert(Alert.AlertType.ERROR, "Erreur de saisie", "Les mots de passe ne correspondent pas.");
         } else if (!isNumeric(numtel.getText()) || numtel.getText().length() != 8) {
             showAlert(Alert.AlertType.ERROR, "Erreur de saisie", "Le numéro de téléphone doit être numérique et contenir 8 chiffres.");
-        } else if (clientRadioButton.isSelected() && artisteRadioButton.isSelected()) {
+        } else if (clientRadioButton.isSelected() && FournisseurRadioButton.isSelected()) {
             showAlert(Alert.AlertType.ERROR, "Erreur de sélection", "Veuillez choisir un seul rôle.");}
         else {
             // Show the loading indicator
             loadingIndicator.setVisible(true);
 
-            // Move email sending to a separate thread
-            new Thread(() -> {
-               String x=generateVerificationCode();
-                sendVerificationEmail(email.getText(),x);
-                // Update UI on the JavaFX Application thread after email sending is complete
-                Platform.runLater(() -> {
-                    // Hide the loading indicator
-                    loadingIndicator.setVisible(false);
+                // Move email sending to a separate thread
+                new Thread(() -> {
+                    String x = generateVerificationCode();
+                    sendVerificationEmail(email.getText(), x);
+                    // Update UI on the JavaFX Application thread after email sending is complete
+                    Platform.runLater(() -> {
+                        // Hide the loading indicator
+                        loadingIndicator.setVisible(false);
 
-                    // Continue with the rest of your logic
-                    if (openVerificationWindow(email.getText(),x) ){
-                        // Verification window opened successfully
+                        // Continue avec le reste de votre logique
                         userService.ajouter4(new User(nom.getText(), prenom.getText(), username.getText(), mdp.getText(),
                                 Role.valueOf(getSelectedRole()), "", "", "", email.getText(), Integer.parseInt(numtel.getText())));
 
                         // Afficher une confirmation
                         redirectToLoginPage(event);
-                        EmailsUtils.envoyerEmailConfirmation(new User(nom.getText(), prenom.getText(), username.getText(), mdp.getText(),
-                                Role.valueOf(getSelectedRole()), "", "", "", email.getText(), Integer.parseInt(numtel.getText())));
-                    } else {
-                        // Verification window failed to open, show an error message or take appropriate action
-                        showAlert(Alert.AlertType.ERROR, "Erreur", "Code de vérification incorrect.");
-                    }
-                });
-            }).start();
-        }
+
+
+                    });
+                }).start();
+
+            }
     }
 
 
@@ -136,37 +131,6 @@ public class inscription {
         return String.valueOf(code);
     }
 
-    private boolean openVerificationWindow(String userEmail, String verificationCode) {
-        try {
-
-            // Charger la page de vérification à partir du fichier FXML
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/verification.fxml"));
-            Parent root = loader.load();
-
-            // Obtenez le contrôleur de la fenêtre de vérification
-            VerificationController verificationController = loader.getController();
-            // Passez les informations nécessaires au contrôleur de la fenêtre de vérification
-            verificationController.setUserEmail(userEmail);
-            verificationController.setVerificationCode(verificationCode);
-
-            // Créer une nouvelle scène
-            Scene scene = new Scene(root);
-
-            // Créer une nouvelle étape (stage) pour la fenêtre de vérification
-            Stage verificationStage = new Stage();
-            verificationStage.setScene(scene);
-
-            // Afficher la fenêtre de vérification
-            verificationStage.showAndWait();
-
-            // Renvoyer true si la vérification a réussi, false sinon
-            return verificationController.isVerificationSuccessful();
-        } catch (IOException e) {
-            e.printStackTrace();
-            // Gérer les erreurs de chargement de la fenêtre de vérification
-            return false;
-        }
-    }
 
     private void redirectToLoginPage(ActionEvent event) {
         try {
@@ -189,6 +153,33 @@ public class inscription {
             // Gérer les erreurs de chargement de la page de connexion
         }
     }
+
+
+
+    private void redirectToSidebarFournisseur(ActionEvent event) {
+        try {
+            // Charger la sidebar du fournisseur
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/sidebarFournisseur.fxml"));
+            Parent root = loader.load();
+
+            // Créer une nouvelle scène
+            Scene scene = new Scene(root);
+
+            // Obtenir la scène actuelle
+            Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+
+            // Changer la scène actuelle vers la sidebar du fournisseur
+            stage.setScene(scene);
+            stage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            // Gérer les erreurs de chargement
+            showAlert(Alert.AlertType.ERROR, "Erreur", "Impossible d'ouvrir la page du fournisseur.");
+        }
+    }
+
+
 
     private void showAlert(Alert.AlertType alertType, String title, String content) {
         Alert alert = new Alert(alertType);
@@ -232,7 +223,7 @@ public class inscription {
     }
 
     private String getSelectedRole() {
-        return clientRadioButton.isSelected() ? "CLIENT" : (artisteRadioButton.isSelected() ? "ARTIST" : "");
+        return clientRadioButton.isSelected() ? "CLIENT" : (FournisseurRadioButton.isSelected() ? "FOURNISSEUR" : "");
     }
 
 }

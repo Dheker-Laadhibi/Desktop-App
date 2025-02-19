@@ -14,7 +14,7 @@ import tn.esprit.Models.User;
 import tn.esprit.Models.session;
 import tn.esprit.Services.UserService;
 
-public class sidebarArtiste {
+public class sidebarFournisseur {
 
     @FXML
     private ResourceBundle resources;
@@ -51,9 +51,9 @@ public class sidebarArtiste {
 
 
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/ProfileArtist.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/ProfileFournisseur.fxml"));
             Parent root = loader.load();
-            ProfileArtist controller = loader.getController();
+            ProfileFournisseur controller = loader.getController();
             labelFX.getScene().setRoot(root);
         } catch (IOException e) {
             e.printStackTrace();

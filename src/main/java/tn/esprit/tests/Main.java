@@ -14,8 +14,7 @@ public class Main {
      // Créez un objet User pour les tests
         User testUser = new User("ayachi", "zeinedddb", "happppp588", "password123",
                Role.ADMIN, "A short bio", "123 Main St", "/path/to/image.jpg", "hasssssmrouni.hajer@esprit.tn",20454874);
- User testUser1 = new User("dheker", "dheker", "dheker47", "password123",
-            Role.ARTIST, "A short bio", "123 Main St", "/path/to/image.jpg", "dheker@esprit.tn",20454784);
+
         User testUser2= new User("aya1111", "aya11", "aya11", "password123",
                 Role.CLIENT, "A short bio", "123 Main St", "/path/to/image.jpg", "aya11@esprit.tn",21454874);
 
@@ -25,9 +24,7 @@ public class Main {
 
 
 
-        User ARTISTE = new User("ARTIST", "ARTIST", "ARTIST", "password123",
-                Role.ARTIST, "A short bio", "123ARTIST", "/path/to/image.jpg", "ARTIST@esprit.tn",20667777);
-////
+
 
         User test = new User("test", "test", "test", "password123",
                 Role.ADMIN, "A short test", "123 test St", "/path/to/image.jpg", "dtest2r@esprit.tn",29454874);

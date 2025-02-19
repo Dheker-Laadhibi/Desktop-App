@@ -115,7 +115,7 @@ public class changemdpArtist {
     public void directtoprofile(MouseEvent mouseEvent) {
         try {
             // Charger la page de connexion à partir du fichier FXML
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/ProfileArtist.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/ProfileFournisseur.fxml"));
             Parent root = loader.load();
 
             // Créer une nouvelle scène

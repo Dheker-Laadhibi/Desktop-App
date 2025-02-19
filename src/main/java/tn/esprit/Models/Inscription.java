@@ -24,20 +24,19 @@ public class Inscription {
     
     
     
-    private int formation_id;
-    private Formation formation;
+
+
 
     public Inscription() {
     }
 
-    public Inscription(int id_inscrit, int id_user, String nom, String prenom, String email, int formation_id, Formation formation) {
+    public Inscription(int id_inscrit, int id_user, String nom, String prenom, String email   ) {
         this.id_inscrit = id_inscrit;
         this.id_user = id_user;
         this.nom = nom;
         this.prenom = prenom;
         this.email = email;
-        this.formation_id = formation_id;
-        this.formation = formation;
+
     }
 
     public int getId_inscrit() {
@@ -88,34 +87,18 @@ public class Inscription {
         this.dateNow = dateNow;
     }
 
-    public int getFormation_id() {
-        return formation_id;
-    }
 
-    public void setFormation_id(int formation_id) {
-        this.formation_id = formation_id;
-    }
-
-    public Formation getFormation() {
-        return formation;
-    }
-
-    public void setFormation(Formation formation) {
-        this.formation = formation;
-    }
-
-    public Inscription(int id_user, String nom, String prenom, String email, int formation_id, Formation formation) {
+    public Inscription(int id_user, String nom, String prenom, String email) {
         this.id_user = id_user;
         this.nom = nom;
         this.prenom = prenom;
         this.email = email;
-        this.formation_id = formation_id;
-        this.formation = formation;
+
     }
 
     @Override
     public String toString() {
-        return "Inscription{" + "id_inscrit=" + id_inscrit + ", id_user=" + id_user + ", nom=" + nom + ", prenom=" + prenom + ", email=" + email + ", dateNow=" + dateNow + ", formation_id=" + formation_id + ", formation=" + formation + '}';
+        return "Inscription{" + "id_inscrit=" + id_inscrit + ", id_user=" + id_user + ", nom=" + nom + ", prenom=" + prenom + ", email=" + email + ", dateNow=" + dateNow + ", formation_id="  + '}';
     }
 
     @Override
@@ -127,8 +110,7 @@ public class Inscription {
         hash = 17 * hash + Objects.hashCode(this.prenom);
         hash = 17 * hash + Objects.hashCode(this.email);
         hash = 17 * hash + Objects.hashCode(this.dateNow);
-        hash = 17 * hash + this.formation_id;
-        hash = 17 * hash + Objects.hashCode(this.formation);
+
         return hash;
     }
 
@@ -150,9 +132,7 @@ public class Inscription {
         if (this.id_user != other.id_user) {
             return false;
         }
-        if (this.formation_id != other.formation_id) {
-            return false;
-        }
+
         if (!Objects.equals(this.nom, other.nom)) {
             return false;
         }
@@ -165,9 +145,7 @@ public class Inscription {
         if (!Objects.equals(this.dateNow, other.dateNow)) {
             return false;
         }
-        if (!Objects.equals(this.formation, other.formation)) {
-            return false;
-        }
+
         return true;
     }
 

@@ -9,16 +9,12 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javafx.util.Duration;
-import org.controlsfx.control.Notifications;
 import tn.esprit.Interfaces.UpdateListener;
-import tn.esprit.Models.Comments;
 import tn.esprit.Models.User;
 import tn.esprit.Models.session;
 import tn.esprit.Services.UserService;
 
 import java.io.IOException;
-import java.util.List;
 
 public class profileUser implements UpdateListener {
 

@@ -5,9 +5,7 @@
  */
 package tn.esprit.Controllers;
 
-import tn.esprit.Models.Formation;
 import tn.esprit.Models.Inscription;
-import tn.esprit.Services.ServiceFormation;
 import tn.esprit.Services.ServiceInscription;
 import java.io.IOException;
 import java.net.URL;
@@ -42,7 +40,7 @@ public class InscriptionController implements Initializable {
     private Label id;
     private Inscription inscrit = new Inscription();
     private int idE;
-    private Formation e = new Formation(); 
+
     @FXML
     private Button id_abondonner;
     /**
@@ -80,25 +78,8 @@ public class InscriptionController implements Initializable {
     }
     
     
-   public void initData(int data) {
-       this.idE=data;
-      String stringNumber = Integer.toString(idE);
 
-      id.setText(stringNumber);
-      tarata();
-      
-    tf_nom.setText(e.getTitre());
-        tf_prenom.setText(e.getTitre());
-    tf_email.setText(e.getTitre());
-            }
-        
-        
-    public void tarata()
-       {
-        ServiceFormation ps = new ServiceFormation();
-        e=ps.readById(idE);
-        //System.out.print(e);
-       }
+
 
     @FXML
     private void abodonner(ActionEvent event) throws IOException {
